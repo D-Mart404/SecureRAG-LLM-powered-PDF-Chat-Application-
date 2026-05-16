@@ -1,0 +1,120 @@
+:root {
+  --rag-paper: #f5f3f0;
+  --rag-paper-soft: #fafaf8;
+  --rag-ink: #1a1a1a;
+  --rag-ink-soft: #2d2d2d;
+  --rag-accent: #ff7a3d;
+  --rag-accent-soft: rgba(255, 122, 61, 0.16);
+  --rag-border: #e5e0da;
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(255, 122, 61, 0.22), transparent 24%),
+    radial-gradient(circle at top right, rgba(26, 26, 26, 0.28), transparent 22%),
+    linear-gradient(180deg, #171717 0%, #202020 24%, #f3f0eb 24%, #f5f3f0 100%);
+  color: var(--rag-ink);
+}
+
+#root {
+  position: relative;
+  isolation: isolate;
+}
+
+#root::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 44px 44px;
+  opacity: 0.18;
+  mix-blend-mode: soft-light;
+  z-index: -1;
+}
+
+.rag-shell {
+  min-height: 100vh;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));
+}
+
+.rag-shell nav,
+.rag-shell footer {
+  backdrop-filter: blur(12px);
+}
+
+.rag-nav {
+  background: linear-gradient(180deg, #1a1a1a, #232323);
+  color: #fafaf8;
+  border-bottom: 2px solid #ff7a3d;
+}
+
+.rag-footer {
+  background: rgba(250, 250, 248, 0.96);
+  color: #4a4a4a;
+  border-top: 1px solid #e5e0da;
+}
+
+.rag-main {
+  background:
+    linear-gradient(180deg, rgba(245, 243, 240, 0.98), rgba(245, 243, 240, 0.94)),
+    var(--rag-paper);
+}
+
+.rag-panel {
+  background: rgba(250, 250, 248, 0.98);
+}
+
+.rag-panel-dark {
+  background: #1f1f1f;
+}
+
+.rag-surface {
+  box-shadow: 0 18px 50px rgba(26, 26, 26, 0.08);
+}
+
+.rag-card {
+  box-shadow: 0 14px 38px rgba(26, 26, 26, 0.08);
+}
+
+.rag-message-item {
+  animation: rag-message-enter 240ms ease-out both;
+}
+
+@keyframes rag-message-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rag-message-item {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Debug helpers: enable temporary outlines to visually trace layout changes */
+.debug-outline * {
+  outline: 1px solid rgba(255, 0, 0, 0.06);
+}
+
+.debug-chat {
+  outline: 2px dashed rgba(0, 200, 255, 0.06);
+}
