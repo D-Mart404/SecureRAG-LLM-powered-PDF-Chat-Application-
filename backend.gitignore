@@ -1,0 +1,29 @@
+# Backend & General
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+users.json
+
+# Chroma vector database storage
+chroma_data/
+.chromadb/
+
+# Notebooks & Data
+.ipynb_checkpoints/
+*.csv
+*.pdf
+datasets/
+
+# Fine-tuning / Model weights
+fine_tune_llama_3.2/*.pt
+fine_tune_llama_3.2/*.pth
+fine_tune_llama_3.2/*.safetensors
+fine_tune_llama_3.2/*.bin
+fine_tune_llama_3.2/tokenizer.json
+fine_tune_llama_3.2/trainer_state.json
+
+# IDE
+.vscode/
+.idea/
+data
