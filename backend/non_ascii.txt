@@ -1,0 +1,8 @@
+database.py:11 'import config  # noqa: F401 — loads .env via config side effect\n'
+database.py:13 '# ── Local JSON user store (works without MongoDB) ────────────────────────────\n'
+database.py:68 '    """Look up bcrypt hash — MongoDB first, then local JSON fallback."""\n'
+database.py:86 '# ── MongoDB (optional) ────────────────────────────────────────────────────────\n'
+langsmith_setup.py:2 'SecureRAG — LangSmith tracing setup.\n'
+langsmith_setup.py:31 '    print(f"[LangSmith] Tracing enabled → project: {_project}")\n'
+langsmith_setup.py:35 '        print("[LangSmith] LANGCHAIN_API_KEY not set — tracing disabled.")'
+llm_factory.py:133 '            "No adapter_model.* weights next to adapter_config.json — using base model only. "\n'

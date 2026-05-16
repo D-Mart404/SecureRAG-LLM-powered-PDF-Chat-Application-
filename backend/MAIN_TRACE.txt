@@ -1,0 +1,101 @@
+GENERAL_EXCEPTION:
+Traceback (most recent call last):
+  File "C:\Users\01\Desktop\sem-2\websites\securerag\backend\main.py", line 138, in upload_pdf
+    n, parser_name = ingest_pdf_bytes(raw, name, user)
+                     ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\01\Desktop\sem-2\websites\securerag\backend\ingest.py", line 196, in ingest_pdf_bytes
+    get_vector_store().add_documents(chunks)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\01\AppData\Roaming\Python\Python314\site-packages\langchain_mongodb\vectorstores.py", line 512, in add_documents
+    self.bulk_embed_and_insert_texts(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        texts=texts, metadatas=metadatas, ids=ids[start:end]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\01\AppData\Roaming\Python\Python314\site-packages\langchain_mongodb\vectorstores.py", line 469, in bulk_embed_and_insert_texts
+    return bulk_embed_and_insert_texts(
+        texts=texts,
+    ...<6 lines>...
+        autoembedding=self._is_autoembedding,
+    )
+  File "C:\Users\01\AppData\Roaming\Python\Python314\site-packages\pymongo_search_utils\operation.py", line 62, in bulk_embed_and_insert_texts
+    embeddings = embedding_func(list(texts))
+  File "C:\Users\01\AppData\Roaming\Python\Python314\site-packages\langchain_huggingface\embeddings\huggingface.py", line 155, in embed_documents
+    return self._embed(texts, self.encode_kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\01\AppData\Roaming\Python\Python314\site-packages\langchain_huggingface\embeddings\huggingface.py", line 130, in _embed
+    embeddings = self._client.encode(
+        texts,
+        show_progress_bar=self.show_progress,
+        **encode_kwargs,
+    )
+  File "C:\Users\01\AppData\Roaming\Python\Python314\site-packages\torch\utils\_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+  File "C:\Users\01\AppData\Roaming\Python\Python314\site-packages\sentence_transformers\SentenceTransformer.py", line 1094, in encode
+    out_features = self.forward(features, **kwargs)
+  File "C:\Users\01\AppData\Roaming\Python\Python314\site-packages\sentence_transformers\SentenceTransformer.py", line 1175, in forward
+    input = module(input, **module_kwargs)
+  File "C:\Users\01\AppData\Roaming\Python\Python314\site-packages\torch\nn\modules\module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\01\AppData\Roaming\Python\Python314\site-packages\torch\nn\modules\module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\01\AppData\Roaming\Python\Python314\site-packages\sentence_transformers\models\Transformer.py", line 262, in forward
+    outputs = self.auto_model(**trans_features, **kwargs, return_dict=True)
+  File "C:\Users\01\AppData\Roaming\Python\Python314\site-packages\torch\nn\modules\module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\01\AppData\Roaming\Python\Python314\site-packages\torch\nn\modules\module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\01\AppData\Roaming\Python\Python314\site-packages\transformers\models\bert\modeling_bert.py", line 1000, in forward
+    encoder_outputs = self.encoder(
+        embedding_output,
+    ...<9 lines>...
+        cache_position=cache_position,
+    )
+  File "C:\Users\01\AppData\Roaming\Python\Python314\site-packages\torch\nn\modules\module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\01\AppData\Roaming\Python\Python314\site-packages\torch\nn\modules\module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\01\AppData\Roaming\Python\Python314\site-packages\transformers\models\bert\modeling_bert.py", line 650, in forward
+    layer_outputs = layer_module(
+        hidden_states,
+    ...<6 lines>...
+        cache_position=cache_position,
+    )
+  File "C:\Users\01\AppData\Roaming\Python\Python314\site-packages\transformers\modeling_layers.py", line 94, in __call__
+    return super().__call__(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\01\AppData\Roaming\Python\Python314\site-packages\torch\nn\modules\module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\01\AppData\Roaming\Python\Python314\site-packages\torch\nn\modules\module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\01\AppData\Roaming\Python\Python314\site-packages\transformers\utils\deprecation.py", line 172, in wrapped_func
+    return func(*args, **kwargs)
+  File "C:\Users\01\AppData\Roaming\Python\Python314\site-packages\transformers\models\bert\modeling_bert.py", line 558, in forward
+    self_attention_outputs = self.attention(
+        hidden_states,
+    ...<4 lines>...
+        cache_position=cache_position,
+    )
+  File "C:\Users\01\AppData\Roaming\Python\Python314\site-packages\torch\nn\modules\module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\01\AppData\Roaming\Python\Python314\site-packages\torch\nn\modules\module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\01\AppData\Roaming\Python\Python314\site-packages\transformers\utils\deprecation.py", line 172, in wrapped_func
+    return func(*args, **kwargs)
+  File "C:\Users\01\AppData\Roaming\Python\Python314\site-packages\transformers\models\bert\modeling_bert.py", line 497, in forward
+    attention_output = self.output(self_outputs[0], hidden_states)
+  File "C:\Users\01\AppData\Roaming\Python\Python314\site-packages\torch\nn\modules\module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\01\AppData\Roaming\Python\Python314\site-packages\torch\nn\modules\module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\01\AppData\Roaming\Python\Python314\site-packages\transformers\models\bert\modeling_bert.py", line 438, in forward
+    hidden_states = self.LayerNorm(hidden_states + input_tensor)
+                                   ~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+RuntimeError: [enforce fail at alloc_cpu.cpp:121] data. DefaultCPUAllocator: not enough memory: you tried to allocate 12582912 bytes.
